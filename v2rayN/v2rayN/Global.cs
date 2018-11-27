@@ -19,7 +19,7 @@ namespace v2rayN
         /// <summary>
         /// 本软件配置文件名
         /// </summary>
-        public const string ConfigFileName = "guiNConfig.json";
+        public const string ConfigFileName = "guiconfig.json";
 
         /// <summary>
         /// v2ray配置文件名

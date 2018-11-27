@@ -59,10 +59,13 @@
             this.menuExport2ServerConfig = new System.Windows.Forms.ToolStripMenuItem();
             this.menuShareQRCode = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsLv = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmsMain.SuspendLayout();
             this.cmsLv.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyMain
@@ -86,12 +89,12 @@
             this.cmsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsMain.ShowCheckMargin = true;
             this.cmsMain.ShowImageMargin = false;
-            this.cmsMain.Size = new System.Drawing.Size(149, 76);
+            this.cmsMain.Size = new System.Drawing.Size(153, 98);
             // 
             // menuSysAgentEnabled
             // 
             this.menuSysAgentEnabled.Name = "menuSysAgentEnabled";
-            this.menuSysAgentEnabled.Size = new System.Drawing.Size(148, 22);
+            this.menuSysAgentEnabled.Size = new System.Drawing.Size(152, 22);
             this.menuSysAgentEnabled.Text = "启用系统代理";
             this.menuSysAgentEnabled.Click += new System.EventHandler(this.menuSysAgentEnabled_Click);
             // 
@@ -103,44 +106,44 @@
             this.toolStripMenuItem2,
             this.menuKeep});
             this.menuSysAgentMode.Name = "menuSysAgentMode";
-            this.menuSysAgentMode.Size = new System.Drawing.Size(148, 22);
+            this.menuSysAgentMode.Size = new System.Drawing.Size(152, 22);
             this.menuSysAgentMode.Text = "系统代理模式";
             // 
             // menuGlobal
             // 
             this.menuGlobal.Name = "menuGlobal";
-            this.menuGlobal.Size = new System.Drawing.Size(184, 22);
+            this.menuGlobal.Size = new System.Drawing.Size(152, 22);
             this.menuGlobal.Text = "全局模式";
             this.menuGlobal.Click += new System.EventHandler(this.menuGlobal_Click);
             // 
             // menuPAC
             // 
             this.menuPAC.Name = "menuPAC";
-            this.menuPAC.Size = new System.Drawing.Size(184, 22);
+            this.menuPAC.Size = new System.Drawing.Size(152, 22);
             this.menuPAC.Text = "PAC模式";
             this.menuPAC.Click += new System.EventHandler(this.menuPAC_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(181, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // menuKeep
             // 
             this.menuKeep.Name = "menuKeep";
-            this.menuKeep.Size = new System.Drawing.Size(184, 22);
-            this.menuKeep.Text = "保持当前模式不变更";
+            this.menuKeep.Size = new System.Drawing.Size(152, 22);
+            this.menuKeep.Text = "保持当前模式";
             this.menuKeep.Click += new System.EventHandler(this.menuKeep_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(148, 22);
+            this.menuExit.Size = new System.Drawing.Size(152, 22);
             this.menuExit.Text = "退出";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -285,36 +288,48 @@
             this.cmsLv.Name = "cmsLv";
             this.cmsLv.Size = new System.Drawing.Size(233, 314);
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(377, 10);
-            this.panel1.TabIndex = 5;
-            // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 10);
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(377, 215);
+            this.groupBox1.Size = new System.Drawing.Size(437, 271);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "服务开启成功 打开浏览器即可访问被墙网站";
+            this.groupBox1.Text = "服务开启成功";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 59);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(436, 207);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "打开浏览器即可访问被墙网站";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 225);
+            this.ClientSize = new System.Drawing.Size(437, 271);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = true;
-            this.MinimizeBox = true;
             this.Name = "MainForm";
             this.Text = "FreeSocks";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -323,6 +338,9 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.cmsMain.ResumeLayout(false);
             this.cmsLv.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,9 +375,10 @@
         private System.Windows.Forms.ToolStripMenuItem menuExport2ServerConfig;
         private System.Windows.Forms.ToolStripMenuItem menuShareQRCode;
         private System.Windows.Forms.ContextMenuStrip cmsLv;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
