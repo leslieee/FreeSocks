@@ -521,9 +521,9 @@ namespace v2rayN
         {
             if (_tempPath == null)
             {
-                Directory.CreateDirectory(Path.Combine(Application.StartupPath, "freesocks_temp"));
+                Directory.CreateDirectory(Path.Combine(Application.StartupPath, "temp"));
                 // don't use "/", it will fail when we call explorer /select xxx/ss_win_temp\xxx.log
-                _tempPath = Path.Combine(Application.StartupPath, "freesocks_temp");
+                _tempPath = Path.Combine(Application.StartupPath, "temp");
             }
             return _tempPath;
         }

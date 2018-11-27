@@ -130,7 +130,7 @@ namespace v2rayN.HttpProxyHandler
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(File.Open(Utils.GetPath(_userWininetConfigFile), FileMode.Create)))
+                using (StreamWriter sw = new StreamWriter(File.Open(Utils.GetTempPath(_userWininetConfigFile), FileMode.Create)))
                 {
                     string jsonString = JsonConvert.SerializeObject(_userSettings, Formatting.Indented);
                     sw.Write(jsonString);
@@ -147,7 +147,7 @@ namespace v2rayN.HttpProxyHandler
         {
             try
             {
-                string configContent = File.ReadAllText(Utils.GetPath(_userWininetConfigFile));
+                string configContent = File.ReadAllText(Utils.GetTempPath(_userWininetConfigFile));
                 _userSettings = JsonConvert.DeserializeObject<SysproxyConfig>(configContent);
             }
             catch (Exception)

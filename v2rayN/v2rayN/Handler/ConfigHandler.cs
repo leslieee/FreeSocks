@@ -20,7 +20,7 @@ namespace v2rayN.Handler
         public static int LoadConfig(ref Config config)
         {
             //载入配置文件 
-            string result = Utils.LoadResource(Utils.GetPath(configRes));
+            string result = Utils.LoadResource(Utils.GetTempPath(configRes));
             if (!Utils.IsNullOrEmpty(result))
             {
                 //转成Json
@@ -275,7 +275,7 @@ namespace v2rayN.Handler
         /// <param name="config"></param>
         public static void ToJsonFile(Config config)
         {
-            Utils.ToJsonFile(config, Utils.GetPath(configRes));
+            Utils.ToJsonFile(config, Utils.GetTempPath(configRes));
         }
 
         /// <summary>

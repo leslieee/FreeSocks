@@ -14,12 +14,14 @@ namespace v2rayN.HttpProxyHandler
     /// </summary>
     class PACServerHandle
     {
-        public const string PAC_FILE = "pac.txt";
-
         private static HttpListener pacLinstener;
 
         public static void Init(Config config)
         {
+            if (!File.Exists(Utils.GetTempPath("pac.txt")))
+            {
+                FileManager.UncompressFile(Utils.GetTempPath("pac.txt"), Resources.pac_txt);
+            }
             pacLinstener = new HttpListener(); //创建监听实例  
             pacLinstener.Prefixes.Add(string.Format("http://127.0.0.1:{0}/pac/", Global.pacPort)); //添加监听地址 注意是以/结尾。  
             pacLinstener.Start(); //允许该监听地址接受请求的传入。  
@@ -59,13 +61,7 @@ namespace v2rayN.HttpProxyHandler
                         requestContext.Response.StatusCode = 200;
                         requestContext.Response.ContentType = "application/x-ns-proxy-autoconfig";
                         requestContext.Response.ContentEncoding = Encoding.UTF8;
-                        if (!File.Exists(PAC_FILE))
-                        {
-                            //TODO:暂时没解决更新PAC列表的问题，用直接解压现有PAC解决
-                            //new PACListHandle().UpdatePACFromGFWList(cfg);
-                            FileManager.UncompressFile(PAC_FILE, Resources.pac_txt);
-                        }
-                        var pac = File.ReadAllText(PAC_FILE, Encoding.UTF8);
+                        var pac = File.ReadAllText(Utils.GetTempPath("pac.txt"), Encoding.UTF8);
                         pac = pac.Replace("__PROXY__", proxy);
                         byte[] buffer = System.Text.Encoding.UTF8.GetBytes(pac);
                         //对客户端输出相应信息.  

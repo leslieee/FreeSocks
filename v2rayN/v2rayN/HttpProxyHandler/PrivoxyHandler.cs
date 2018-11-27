@@ -34,7 +34,7 @@ namespace v2rayN.HttpProxyHandler
                 _uniqueConfigFile = string.Format("privoxy_{0}.conf", _uid);
                 _privoxyJob = new Job();
 
-                FileManager.UncompressFile(Utils.GetTempPath("v2ray_privoxy.exe"), Resources.privoxy_exe);
+                FileManager.UncompressFile(Utils.GetTempPath("privoxy.exe"), Resources.privoxy_exe);
                 FileManager.UncompressFile(Utils.GetTempPath("mgwz.dll"), Resources.mgwz_dll);
             }
             catch (IOException e)
@@ -83,7 +83,7 @@ namespace v2rayN.HttpProxyHandler
         {
             if (_process == null)
             {
-                Process[] existingPrivoxy = Process.GetProcessesByName("v2ray_privoxy");
+                Process[] existingPrivoxy = Process.GetProcessesByName("privoxy");
                 foreach (Process p in existingPrivoxy.Where(IsChildProcess))
                 {
                     KillProcess(p);
@@ -100,7 +100,7 @@ namespace v2rayN.HttpProxyHandler
                     // Configure the process using the StartInfo properties.
                     StartInfo =
                     {
-                        FileName = "v2ray_privoxy.exe",
+                        FileName = "privoxy.exe",
                         Arguments = _uniqueConfigFile,
                         WorkingDirectory = Utils.GetTempPath(),
                         WindowStyle = ProcessWindowStyle.Hidden,
@@ -149,7 +149,7 @@ namespace v2rayN.HttpProxyHandler
         }
 
         /*
-         * We won't like to kill other ss instances' v2ray_privoxy.exe.
+         * We won't like to kill other ss instances' privoxy.exe.
          * This function will check whether the given process is created
          * by this process by checking the module path or command line.
          * 
@@ -163,11 +163,11 @@ namespace v2rayN.HttpProxyHandler
             try
             {
                 /*
-                 * Under PortableMode, we could identify it by the path of v2ray_privoxy.exe.
+                 * Under PortableMode, we could identify it by the path of privoxy.exe.
                  */
                 var path = process.MainModule.FileName;
 
-                return Utils.GetTempPath("v2ray_privoxy.exe").Equals(path);
+                return Utils.GetTempPath("privoxy.exe").Equals(path);
 
             }
             catch (Exception ex)
