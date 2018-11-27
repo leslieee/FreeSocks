@@ -33,6 +33,8 @@ namespace v2rayN.Handler
                 config.logEnabled = false;
                 config.loglevel = "warning";
                 config.vmess = new List<VmessItem>();
+                config.sysAgentEnabled = true;
+                config.listenerType = 1;
 
                 //路由
                 config.chinasites = false;
