@@ -18,7 +18,7 @@ namespace v2rayN.Forms
         {
             InitializeComponent();
             this.ShowInTaskbar = false;
-            this.WindowState = FormWindowState.Minimized;
+            // this.WindowState = FormWindowState.Minimized;
             this.Text = Utils.GetVersion();
 
             Application.ApplicationExit += (sender, args) =>
@@ -102,24 +102,7 @@ namespace v2rayN.Forms
         /// </summary>
         private void InitServersView()
         {
-            lvServers.Items.Clear();
-
-            lvServers.GridLines = true;
-            lvServers.FullRowSelect = true;
-            lvServers.View = View.Details;
-            lvServers.Scrollable = true;
-            lvServers.MultiSelect = false;
-            lvServers.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-
-            lvServers.Columns.Add("活动", 40, HorizontalAlignment.Center);
-            lvServers.Columns.Add("别名(remarks)", 120, HorizontalAlignment.Left);
-            lvServers.Columns.Add("地址(address)", 110, HorizontalAlignment.Left);
-            lvServers.Columns.Add("端口(port)", 80, HorizontalAlignment.Left);
-            lvServers.Columns.Add("用户ID(id)", 110, HorizontalAlignment.Left);
-            lvServers.Columns.Add("额外ID(alterId)", 110, HorizontalAlignment.Left);
-            lvServers.Columns.Add("加密方式(security)", 120, HorizontalAlignment.Left);
-            lvServers.Columns.Add("传输协议(network)", 120, HorizontalAlignment.Left);
-            lvServers.Columns.Add("延迟(Latency)", 100, HorizontalAlignment.Left);
+            
 
         }
 
@@ -128,31 +111,7 @@ namespace v2rayN.Forms
         /// </summary>
         private void RefreshServersView()
         {
-            lvServers.Items.Clear();
-
-            for (int k = 0; k < config.vmess.Count; k++)
-            {
-                string def = string.Empty;
-                if (config.index.Equals(k))
-                {
-                    def = "√";
-                }
-
-                VmessItem item = config.vmess[k];
-                ListViewItem lvItem = new ListViewItem(new string[]
-                {
-                    def,
-                    item.remarks,
-                    item.address,
-                    item.port.ToString(),
-                    item.id,
-                    item.alterId.ToString(),
-                    item.security,
-                    item.network,
-                    ""
-                });
-                lvServers.Items.Add(lvItem);
-            }
+            
 
         }
 
@@ -161,22 +120,7 @@ namespace v2rayN.Forms
         /// </summary>
         private void RefreshServersMenu()
         {
-            menuServers.DropDownItems.Clear();
-
-            for (int k = 0; k < config.vmess.Count; k++)
-            {
-                VmessItem item = config.vmess[k];
-                string name = item.getSummary();
-
-                ToolStripMenuItem ts = new ToolStripMenuItem(name);
-                ts.Tag = k;
-                if (config.index.Equals(k))
-                {
-                    ts.Checked = true;
-                }
-                ts.Click += new EventHandler(ts_Click);
-                menuServers.DropDownItems.Add(ts);
-            }
+           
         }
 
         private void ts_Click(object sender, EventArgs e)
@@ -468,22 +412,7 @@ namespace v2rayN.Forms
         /// <returns></returns>
         private int GetLvSelectedIndex()
         {
-            int index = -1;
-            try
-            {
-                if (lvServers.SelectedIndices.Count <= 0)
-                {
-                    UI.Show("请先选择服务器");
-                    return index;
-                }
-
-                index = lvServers.SelectedIndices[0];
-                return index;
-            }
-            catch
-            {
-                return index;
-            }
+            return 0; 
         }
 
         private void menuAddCustomServer_Click(object sender, EventArgs e)
@@ -548,15 +477,7 @@ namespace v2rayN.Forms
 
         void AppendText(string text)
         {
-            if (this.txtMsgBox.InvokeRequired)
-            {
-                Invoke(new AppendTextDelegate(AppendText), new object[] { text });
-            }
-            else
-            {
-                //this.txtMsgBox.AppendText(text);
-                ShowMsg(text);
-            }
+            
         }
 
         /// <summary>
@@ -565,11 +486,7 @@ namespace v2rayN.Forms
         /// <param name="msg"></param>
         private void ShowMsg(string msg)
         {
-            this.txtMsgBox.AppendText(msg);
-            if (!msg.EndsWith("\r\n"))
-            {
-                this.txtMsgBox.AppendText("\r\n");
-            }
+            
         }
 
         /// <summary>
@@ -577,7 +494,6 @@ namespace v2rayN.Forms
         /// </summary>
         private void ClearMsg()
         {
-            this.txtMsgBox.Clear();
         }
 
         /// <summary>
@@ -661,9 +577,7 @@ namespace v2rayN.Forms
         {
             try
             {
-                int k = e.ProgressPercentage;
-                string time = Convert.ToString(e.UserState);
-                lvServers.Items[k].SubItems[lvServers.Items[k].SubItems.Count - 1].Text = time;
+                
 
             }
             catch

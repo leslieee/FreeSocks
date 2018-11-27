@@ -426,9 +426,8 @@ namespace v2rayN
             try
             {
                 string location = GetExePath();
-                return string.Format("v2rayN - V{0} - {1}",
-                        FileVersionInfo.GetVersionInfo(location).FileVersion.ToString(),
-                        File.GetLastWriteTime(location).ToString("yyyy/MM/dd"));
+                return string.Format("FreeSocks v{0}",
+                        FileVersionInfo.GetVersionInfo(location).FileVersion.ToString());
             }
             catch
             {
@@ -522,9 +521,9 @@ namespace v2rayN
         {
             if (_tempPath == null)
             {
-                Directory.CreateDirectory(Path.Combine(Application.StartupPath, "v2ray_win_temp"));
+                Directory.CreateDirectory(Path.Combine(Application.StartupPath, "freesocks_temp"));
                 // don't use "/", it will fail when we call explorer /select xxx/ss_win_temp\xxx.log
-                _tempPath = Path.Combine(Application.StartupPath, "v2ray_win_temp");
+                _tempPath = Path.Combine(Application.StartupPath, "freesocks_temp");
             }
             return _tempPath;
         }

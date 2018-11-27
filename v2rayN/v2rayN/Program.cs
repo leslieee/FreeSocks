@@ -27,7 +27,7 @@ namespace v2rayN
             }
             else
             {
-                MessageBox.Show("v2rayN已经运行");
+                MessageBox.Show("FreeSocks已经运行");
             }
         }
 
