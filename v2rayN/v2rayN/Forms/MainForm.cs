@@ -716,6 +716,12 @@ namespace v2rayN.Forms
         #endregion
 
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://avgle.com/videos?o=tf");
+        }
+
+
 
     }
 }
